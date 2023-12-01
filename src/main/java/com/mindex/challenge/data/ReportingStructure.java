@@ -9,29 +9,48 @@ public class ReportingStructure {
     private Employee employee;
     private int numberOfReports;
 
-    public ReportingStructure(Employee employee) {
+    public ReportingStructure(){}
 
-        this.employee = employee;
-        
-        //bfs for getting all records
-        if (employee == null) {
-            this.numberOfReports = 0;
-        }
-
-        this.numberOfReports = 0;
-        Queue<Employee> queue = new LinkedList<>();
-        queue.offer(employee);
-
-        while (!queue.isEmpty()) {
-            Employee currentEmployee = queue.poll();
-            this.numberOfReports++;
-
-            List<Employee> directReports = currentEmployee.getDirectReports();
-            if (directReports != null) {
-                queue.addAll(directReports);
-            }
-        }
-
+    public Employee getEmployee() {
+        return employee;
     }
 
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public int getNumberOfReports(){
+        return numberOfReports;
+    }
+
+    // public int getNumberOfReports(){
+
+    //     //bfs for getting all records
+    //     if (employee == null) {
+    //         return 0;
+    //     }
+
+    //     int totalEmployees = 0;
+    //     Queue<Employee> queue = new LinkedList<>();
+    //     queue.offer(employee);
+
+    //     while (!queue.isEmpty()) {
+    //         Employee currentEmployee = queue.poll();
+    //         totalEmployees++;
+
+    //         List<Employee> directReports = currentEmployee.getDirectReports();
+    //         if (directReports != null) {
+    //             queue.addAll(directReports);
+    //         }
+    //     }
+
+    //     return totalEmployees - 1;
+
+    // }
+
+    public void setNumberOfReports(int numberOfReports){
+        this.numberOfReports = numberOfReports;
+    }
+    
+    
 }

@@ -20,7 +20,8 @@ public class ReportingStructureServiceImpl implements ReportingStructureService{
     public ReportingStructure read(String id) {
         LOG.debug("Creating reportingReport with id [{}]", id);
 
-        ReportingStructure reportingStructure = reportingStructureRepository.findByNumberOfReports(id);
+        //finds reportingStructure by employeeId
+        ReportingStructure reportingStructure = reportingStructureRepository.findByEmployeeId(id);
 
         if (reportingStructure == null) {
             throw new RuntimeException("Invalid employeeId: " + id);
