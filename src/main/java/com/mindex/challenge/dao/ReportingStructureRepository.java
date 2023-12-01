@@ -8,6 +8,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface ReportingStructureRepository extends MongoRepository<ReportingStructure, String>{
 
     //Gets reportingStructure based on employeeId
-    ReportingStructure findReportingStructureById(String employeeId);
+    ReportingStructure findByNumberOfReports(String employeeId);
     
 }

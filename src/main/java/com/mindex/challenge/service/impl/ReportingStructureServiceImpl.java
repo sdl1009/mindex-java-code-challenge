@@ -9,11 +9,10 @@ import com.mindex.challenge.data.ReportingStructure;
 import com.mindex.challenge.service.ReportingStructureService;
 
 @Service
-public class ReportingStrucutreServiceImpl implements ReportingStructureService{
+public class ReportingStructureServiceImpl implements ReportingStructureService{
     
-    private static final Logger LOG = LoggerFactory.getLogger(ReportingStrucutreServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ReportingStructureServiceImpl.class);
 
-    //Use of same employee repo since the request for an employee is the same for both endpoints
     @Autowired
     private ReportingStructureRepository reportingStructureRepository;
 
@@ -21,7 +20,7 @@ public class ReportingStrucutreServiceImpl implements ReportingStructureService{
     public ReportingStructure read(String id) {
         LOG.debug("Creating reportingReport with id [{}]", id);
 
-        ReportingStructure reportingStructure = reportingStructureRepository.findReportingStructureById(id);
+        ReportingStructure reportingStructure = reportingStructureRepository.findByNumberOfReports(id);
 
         if (reportingStructure == null) {
             throw new RuntimeException("Invalid employeeId: " + id);
