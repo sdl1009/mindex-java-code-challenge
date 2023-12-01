@@ -6,41 +6,25 @@ import java.util.Queue;
 
 public class ReportingStructure {
 
-    private String employeeId;
     private Employee employee;
     private int numberOfReports;
 
-    public ReportingStructure(){}
+    public ReportingStructure(Employee employee) {
 
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
-
-    public int getNumberOfReports(){
-
+        
+        //bfs for getting all records
         if (employee == null) {
-            return 0;
+            this.numberOfReports = 0;
         }
 
-        int totalEmployees = 0;
+        this.numberOfReports = 0;
         Queue<Employee> queue = new LinkedList<>();
         queue.offer(employee);
 
         while (!queue.isEmpty()) {
             Employee currentEmployee = queue.poll();
-            totalEmployees++;
+            this.numberOfReports++;
 
             List<Employee> directReports = currentEmployee.getDirectReports();
             if (directReports != null) {
@@ -48,28 +32,6 @@ public class ReportingStructure {
             }
         }
 
-        return totalEmployees;
-
     }
 
-    public void setNumberOfReports(int numberOfReports){
-        this.numberOfReports = numberOfReports;
-    }
-    
-    
 }
-
-// public class ReportingStructure {
-
-//     private Employee employee;
-//     private int numberOfReports;
-
-//     public ReportingStructure(Employee employee) {
-
-//         this.employee = employee;
-//         //number of direct reports for employee
-//         this.numberOfReports = employee.getDirectReports().size();
-
-//     }
-
-// }
