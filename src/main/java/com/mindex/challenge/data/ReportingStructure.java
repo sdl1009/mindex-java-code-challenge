@@ -8,13 +8,14 @@ import org.springframework.data.annotation.Transient;
 
 public class ReportingStructure {
 
-    private String employeeId;
+    @Transient
     private Employee employee;
     @Transient
     private int numberOfReports;
 
     public ReportingStructure(){}
 
+    @Transient
     public Employee getEmployee() {
         return employee;
     }
@@ -22,7 +23,8 @@ public class ReportingStructure {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
-
+    
+    @Transient
     public int getNumberOfReports(){
 
         //bfs for getting all records
