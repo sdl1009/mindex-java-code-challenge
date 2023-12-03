@@ -50,6 +50,8 @@ public class ReportingStructure {
     @Transient
     public int getNumberOfReports(){
 
+        //Attempt 1 at getting all nested directReports
+
         //bfs for getting all records
         if (employee == null) {
             return 0;
@@ -69,7 +71,9 @@ public class ReportingStructure {
             }
         }
 
-        return totalEmployees - 1;
+        // return totalEmployees - 1;
+
+        return this.numberOfReports;
 
     }
 
