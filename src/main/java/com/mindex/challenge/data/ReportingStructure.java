@@ -13,6 +13,8 @@ public class ReportingStructure {
     @Transient
     private int numberOfReports;
 
+    public ReportingStructure(){}
+
     public ReportingStructure(Employee employee){
 
         this.employee = employee;
