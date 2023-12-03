@@ -25,7 +25,7 @@ public class CompensationController {
         return compensationController.create(compensation);
     }
 
-    @GetMapping("/employee/{id}")
+    @GetMapping("/compensation/{id}")
     public Compensation read(@PathVariable String id) {
         LOG.debug("Received compnesation get request for id [{}]", id);
 
