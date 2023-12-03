@@ -11,7 +11,7 @@ import com.mindex.challenge.data.Employee;
 
 @Repository
 public interface CompensationRepository extends MongoRepository<Compensation, Employee>{
-    //Custom Query for mongo
+    //Custom Query for mongo get whole Employee object with just id
     @Query("{'employee.employeeId': ?0}")
     Compensation findByEmployeeEmployeeId(String employeeId);
 }

@@ -22,6 +22,7 @@ public class CompensationServiceImpl implements CompensationService{
     public Compensation create(Compensation compensation) {
         LOG.debug("Creating employee [{}]", compensation);
 
+        //creates Compensation object from payload
         compensationRepository.insert(compensation);
 
         return compensation;
@@ -31,6 +32,7 @@ public class CompensationServiceImpl implements CompensationService{
     public Compensation read(String id) {
         LOG.debug("Getting Compensation with id [{}]", id);
 
+        //Gets Compensation by Id
         Compensation compensation = compensationRepository.findByEmployeeEmployeeId(id);
 
         LOG.debug("Getting Compensation with compensation [{}]", compensation);
