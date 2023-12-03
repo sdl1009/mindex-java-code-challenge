@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.mindex.challenge.dao.CompensationRepository;
 import com.mindex.challenge.data.Compensation;
-import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.service.CompensationService;
 
 @Service
@@ -24,7 +23,7 @@ public class CompensationServiceImpl implements CompensationService{
     public Compensation create(Compensation compensation) {
         LOG.debug("Creating employee [{}]", compensation);
 
-        compensationRepository.insert(compensation);
+        // compensationRepository.insert(compensation);
 
         return compensation;
     }
