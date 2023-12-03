@@ -1,11 +1,15 @@
 package com.mindex.challenge.data;
 
-import java.sql.Date;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Compensation {
     
     private Employee employee;
     private int salary;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-dd-MM")
     private Date effectiveDate;
 
     public Compensation(){}
@@ -26,11 +30,11 @@ public class Compensation {
         this.salary = salary;
     }
 
-    public Date getDate() {
+    public Date getEffectiveDate() {
         return effectiveDate;
     }
 
-    public void setDate(Date date) {
+    public void setEffectiveDate(Date date) {
         this.effectiveDate = effectiveDate;
     }
 

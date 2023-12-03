@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mindex.challenge.dao.CompensationRepository;
+import com.mindex.challenge.dao.EmployeeRepository;
 import com.mindex.challenge.data.Compensation;
+import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.service.CompensationService;
 
 @Service
@@ -17,26 +19,31 @@ public class CompensationServiceImpl implements CompensationService{
     private static final Logger LOG = LoggerFactory.getLogger(CompensationServiceImpl.class);
 
     @Autowired
+    EmployeeRepository employeeRepository;
+
+    @Autowired
     CompensationRepository compensationRepository;
 
     @Override
     public Compensation create(Compensation compensation) {
         LOG.debug("Creating employee [{}]", compensation);
 
-        // compensationRepository.insert(compensation);
+        compensationRepository.insert(compensation);
 
         return compensation;
     }
 
     @Override
     public Compensation read(String id) {
-        LOG.debug("Creating employee with id [{}]", id);
+        LOG.debug("Getting Compensation with id [{}]", id);
 
-        Compensation compensation = compensationRepository.findByEmployeeId(id);
+        Employee employee = employeeRepository.findByEmployeeId(id);
 
-        if (compensation == null) {
-            throw new RuntimeException("Invalid employeeId: " + id);
+        if (employee == null) {
+            throw new RuntimeException("Invalid employee: " + id);
         }
+
+        Compensation compensation = compensationRepository.findByEmployee(employee);
 
         return compensation;
     }

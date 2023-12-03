@@ -10,26 +10,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mindex.challenge.data.Compensation;
+import com.mindex.challenge.service.CompensationService;
 
 @RestController
 public class CompensationController {
     private static final Logger LOG = LoggerFactory.getLogger(CompensationController.class);
 
     @Autowired
-    CompensationController compensationController;
+    CompensationService compensationService;
 
     @PostMapping("/compensation")
     public Compensation create(@RequestBody Compensation compensation) {
         LOG.debug("Received compensation create request for [{}]", compensation);
 
-        return compensationController.create(compensation);
+        return compensationService.create(compensation);
     }
-
+    
     @GetMapping("/compensation/{id}")
     public Compensation read(@PathVariable String id) {
         LOG.debug("Received compnesation get request for id [{}]", id);
 
-        return compensationController.read(id);
+        return compensationService.read(id);
     }
     
 }
