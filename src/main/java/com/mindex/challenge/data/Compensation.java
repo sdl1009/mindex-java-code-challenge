@@ -34,7 +34,7 @@ public class Compensation {
         return effectiveDate;
     }
 
-    public void setEffectiveDate(Date date) {
+    public void setEffectiveDate(Date effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
 
